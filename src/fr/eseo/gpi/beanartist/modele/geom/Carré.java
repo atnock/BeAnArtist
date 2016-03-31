@@ -3,6 +3,8 @@
 
  public class Carré extends Rectangle{
 
+	private int largeur;
+	private int hauteur;
 	
 	//Constructeurs
 
@@ -14,6 +16,18 @@
 		this(new Point(),coté);
 	}
 	
+	public Carré (int x, int y, int coté) {
+		this(new Point(x, y), coté);
+	}
+	
+	public void setHauteur(int hauteur){
+		this.hauteur = hauteur;
+	}
+	
+	public void setLargeur(int largeur){
+		this.largeur = largeur;
+	}
+	
 	public Carré (Point position){
 		this(position,Forme.LARGEUR_PAR_DÉFAUT);
 	}
@@ -21,6 +35,8 @@
 	public Carré (){
 		this(new Point(),Forme.LARGEUR_PAR_DÉFAUT);
 	}
+	
+	
 
 	public String toString (){
 		return (super.toString());
