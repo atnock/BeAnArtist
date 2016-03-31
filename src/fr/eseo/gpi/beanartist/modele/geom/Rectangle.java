@@ -42,6 +42,9 @@ public class Rectangle extends Forme{
 	public Rectangle(){
 		this(new Point(), Forme.LARGEUR_PAR_DÉFAUT, Forme.HAUTEUR_PAR_DÉFAUT);
 	}
+	public Rectangle (int x, int y , int largeur , int hauteur){
+		this(new Point(x, y), largeur , hauteur);
+	}
 	/*
 	//geters et seters
 	public int getLargeur(){
