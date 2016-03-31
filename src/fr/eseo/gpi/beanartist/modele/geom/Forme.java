@@ -111,7 +111,7 @@ public abstract class Forme {
 		return min;
 		}
 
-	public void deplacerVers(int x,int y){
+	public void déplacerVers(int x,int y){
 		Point point = new Point(x,y);
 		setPosition(point);		
 		}
@@ -123,15 +123,15 @@ public abstract class Forme {
 	public String toString(){
 		String description;
 			description="["+this.getClass().getSimpleName()+"] pos: ("+getX()+","+getY()+") , dim : " +
-						this.getLargeur()+" x "+this.getHauteur()+", périmètre : " + this.calculPerimetre()+
-						", aire: "+this.calculAire();
+						this.getLargeur()+" x "+this.getHauteur()+", périmètre : " + this.périmètre()+
+						", aire: "+this.aire();
 		return description;
 	}
 
 	//Méthodes abstraites
 
-	public abstract double calculAire();
+	public abstract double aire();
 
-	public abstract double calculPerimetre();
+	public abstract double périmètre();
 	
 }
