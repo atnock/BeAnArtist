@@ -20,6 +20,9 @@ public class Ellipse extends Forme {
 	public Ellipse (Point position){
 		super(position);
 	}
+	public Ellipse (int x , int y , int largeur , int hauteur){
+		super(new Point (x, y), largeur , hauteur );
+	}
 
 	
 	public double aire(){
