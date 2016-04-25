@@ -20,14 +20,6 @@
 		this(new Point(x, y), coté);
 	}
 	
-	public void setHauteur(int hauteur){
-		this.hauteur = hauteur;
-	}
-	
-	public void setLargeur(int largeur){
-		this.largeur = largeur;
-	}
-	
 	public Carré (Point position){
 		this(position,Forme.LARGEUR_PAR_DÉFAUT);
 	}
@@ -36,7 +28,13 @@
 		this(new Point(),Forme.LARGEUR_PAR_DÉFAUT);
 	}
 	
+	public void setHauteur(int hauteur){
+		this.hauteur = hauteur;
+	}
 	
+	public void setLargeur(int largeur){
+		this.largeur = largeur;
+	}
 
 	public String toString (){
 		return (super.toString());

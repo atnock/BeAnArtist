@@ -9,10 +9,30 @@ public abstract class Forme {
 
 	// Variables d'instances
 	
-	private int largeur;
-	private int hauteur;
-	private Point position;
+	public int largeur;
+	public int hauteur;
+	public Point position;
 
+	
+	
+	/*
+
+
+public Forme (){
+this ( new Point () , HAUTEUR_PAR_DÉFAUT ,
+LARGEUR_PAR_DÉFAUT );
+}
+
+
+
+/*
+* Les méthodes d ' instances de la classe abstraite Forme
+* seront héritées par les sous - classes de Forme .
+* Ces dernières pourront donc les utiliser .
+
+
+..
+	 */
 	//Constructeurs
 
 	public Forme(Point position, int largeur, int hauteur){
@@ -79,6 +99,8 @@ public abstract class Forme {
 		position.déplacerVers(this.getX(),y);
 	}
 	
+	
+		
 	public int getMaxX(){
 		int max = getX()+this.largeur;
 		if (max<this.getX()){
