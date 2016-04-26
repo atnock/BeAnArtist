@@ -32,11 +32,13 @@
 	//getset
 	
 	public void setHauteur(int hauteur){
-		this.hauteur = hauteur;
+		super.setHauteur(hauteur);
+		super.setLargeur(hauteur);
 	}
 	
 	public void setLargeur(int largeur){
-		this.largeur = largeur;
+		super.setLargeur(largeur);
+		super.setHauteur(largeur);
 	}
 
 	public String toString (){
