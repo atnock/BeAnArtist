@@ -108,6 +108,6 @@
 	 }
 	 
 	 public String toString(){
-		 return "Je suis une ligne";
+		 return "[Ligne] p1 : ("+this.getX()+","+this.getY()+") p2 : ("+this.getP2().getX()+","+this.getP2().getY()+") longeur : "+this.périmètre();
 	 }
  }
