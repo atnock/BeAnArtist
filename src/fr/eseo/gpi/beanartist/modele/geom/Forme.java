@@ -156,4 +156,8 @@ LARGEUR_PAR_DÉFAUT );
 
 	public abstract double périmètre();
 	
+	public abstract boolean contient(int x, int y);
+	
+	public abstract boolean contient(Point testPosition);
+	
 }

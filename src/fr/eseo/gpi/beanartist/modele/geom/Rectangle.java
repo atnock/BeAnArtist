@@ -73,6 +73,16 @@ public class Rectangle extends Forme{
 	public double périmètre(){
 		return 2*this.getLargeur()+2*this.getHauteur();
 	}
+	
+	public boolean contient(int x, int y){
+		return (x > this.getMinX() && x < this.getMinX() + this.getLargeur() && y > this.getMinY() && y < this.getMinY() + this.getHauteur());
+	}
+	
+	public boolean contient(Point testPosition){
+		int x = testPosition.getX();
+		int y = testPosition.getY();
+		return (x > this.getMinX() && x < this.getMinX() + this.getLargeur() && y > this.getMinY() && y < this.getMinY() + this.getHauteur());
+	}
 	/*
 	public void deplacerVers(int x,int y){
 		Point point = new Point(x,y);
