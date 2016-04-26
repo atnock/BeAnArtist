@@ -9,9 +9,9 @@ public abstract class Forme {
 
 	// Variables d'instances
 	
-	public int largeur;
-	public int hauteur;
-	public Point position;
+	private int largeur;
+	private int hauteur;
+	private Point position;
 
 	
 	
@@ -56,7 +56,7 @@ LARGEUR_PAR_DÉFAUT );
 	public Forme(Point position){
 		this(position,HAUTEUR_PAR_DÉFAUT,LARGEUR_PAR_DÉFAUT);
 	}
-
+	
 	// Méthodes d'instances génériques de la classe abstraite Forme
 
 	public Point getPosition(){

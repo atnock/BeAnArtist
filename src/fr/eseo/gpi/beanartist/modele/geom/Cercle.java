@@ -25,16 +25,16 @@ public class Cercle extends Ellipse {
 	}
 	
 	public void setHauteur(int hauteur){
-		this.hauteur = hauteur;
+		this.setHauteur(hauteur);
 	}
 	
 	public void setLargeur(int largeur){
-		this.largeur = largeur;
+		this.setLargeur(largeur);
 	}
 	
-	//private void position(Point point){
-		
-	//}
+	public double périmètre(){
+		return Math.PI*this.getHauteur();
+	}
 	
 	public String toString (){
 		return (super.toString());
