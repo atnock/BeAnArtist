@@ -3,8 +3,8 @@
 
  public class Carré extends Rectangle{
 
-	private int largeur;
-	private int hauteur;
+	//private int largeur;
+	//private int hauteur;
 	
 	//Constructeurs
 
@@ -27,6 +27,9 @@
 	public Carré (){
 		this(new Point(),Forme.LARGEUR_PAR_DÉFAUT);
 	}
+	
+	
+	//getset
 	
 	public void setHauteur(int hauteur){
 		this.hauteur = hauteur;
