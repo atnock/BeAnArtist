@@ -20,11 +20,11 @@ public class Tracé extends Forme{
 	}
 	
 	public void setX(int x){
-		lignes.get(0).setX(0);
+		lignes.get(0).setX(x);
 	}
 	
 	public void setY(int y){
-		lignes.get(0).setY(0);
+		lignes.get(0).setY(y);
 	}
 	
 	public void setHauteur(int newHauteur){

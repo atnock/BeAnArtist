@@ -5,11 +5,11 @@
 	 public static final double EPSILON = 0.5;
 	 
 	 public Ligne(){
-		 this(new Point(), 0, 0);
+		 this(new Point(), Forme.LARGEUR_PAR_DÉFAUT, Forme.HAUTEUR_PAR_DÉFAUT);
 	 }
 	 
 	 public Ligne(Point point) {
-		 this(point, 0, 0);
+		 this(point, Forme.LARGEUR_PAR_DÉFAUT, Forme.HAUTEUR_PAR_DÉFAUT);
 	 }
 	 
 	 public Ligne(int largeur, int hauteur){
@@ -38,14 +38,15 @@
 	 }
 	 
 	 public void setP1(Point newPoint){
+		 this.setLargeur(this.getLargeur()-newPoint.getX()+this.getPosition().getX());
+		 this.setHauteur(this.getHauteur()-newPoint.getY()+this.getPosition().getY());
 		 this.getP1().setX(newPoint.getX());
 		 this.getP1().setY(newPoint.getY());
 	 }
 	 
 	 public void setP2(Point newPoint){
-		 Point P1 = this.getP1();
-		 this.setHauteur(newPoint.getX() - P1.getX());
-		 this.setLargeur(newPoint.getY() - P1.getY());
+		 this.setLargeur(newPoint.getX() - this.getPosition().getX());
+		 this.setHauteur(newPoint.getY() - this.getPosition().getY());
 	 }
 	 
 	 public int getMaxX(){
