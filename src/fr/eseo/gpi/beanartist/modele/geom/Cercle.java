@@ -1,13 +1,12 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 import fr.eseo.gpi.beanartist.modele.geom.Ellipse;
-import fr.eseo.gpi.beanartist.modele.geom.Forme;
-
 //import fr.eseo.gpi.beanartist.modele.geom.Forme;
+
 import fr.eseo.gpi.beanartist.modele.geom.Point;
 
 
 public class Cercle extends Ellipse {
-	public static final int HAUTEUR_PAR_DEFAUT=3;
+	public static final int HAUTEUR_PAR_DEFAUT=150;
 	//Constructeurs
 
 	public Cercle(Point centre,int hauteur){
@@ -28,18 +27,18 @@ public class Cercle extends Ellipse {
 	}
 	
 	public void setHauteur(int hauteur){
-		this.hauteur = hauteur;
+		super.setHauteur(hauteur);
+		super.setLargeur(hauteur);
 	}
 	
 	public void setLargeur(int largeur){
-		this.largeur = largeur;
+		super.setLargeur(largeur);
+		super.setHauteur(largeur);
 	}
-	
-	
-	public double périmetre(){
-		return Math.PI*2*this.getHauteur();
+
+	public double périmètre(){
+		return Math.PI*this.getHauteur();
 	}
-	
 	
 	public String toString (){
 		return (super.toString());

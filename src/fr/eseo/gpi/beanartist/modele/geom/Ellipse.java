@@ -26,12 +26,29 @@ public class Ellipse extends Forme {
 
 	
 	public double aire(){
-		return (double)Math.PI * getLargeur() * getHauteur();
+		return (double)Math.PI *0.5*getLargeur() * 0.5*getHauteur();
 	}
 
 	public double périmètre(){
-		return  2*(double)Math.PI*(double)Math.sqrt(0.5*((double)Math.pow(getLargeur()/2,2)+(double)Math.pow(getHauteur()/2,2)));
+		double a = 0.5*getHauteur();
+		double b= 0.5*getLargeur();
+		double h = ((a-b)/(a+b)*(a-b)/(a+b));
+		double q = (3*h)/(10+ Math.sqrt(4-3*h));
+		return (double)Math.PI*(a+b)*(1+q);
 	}
-
+	public boolean contient(int x, int y){
+		int a = this.getLargeur();
+		int b = this.getHauteur();
+		return ((x*x)/(a*a) + (y*y)/(b*b)) <= 1;
+	}
+	
+	public boolean contient(Point testPosition){
+		int x = testPosition.getX();
+		int y = testPosition.getY();
+		int a = this.getLargeur();
+		int b = this.getHauteur();
+		return ((x*x)/(a*a) + (y*y)/(b*b)) <= 1;
+	}
 }
+
 

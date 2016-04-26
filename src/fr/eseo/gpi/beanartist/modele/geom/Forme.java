@@ -1,5 +1,5 @@
 package fr.eseo.gpi.beanartist.modele.geom;
-
+import java.text.DecimalFormat;
 public abstract class Forme {
 
 	//Constantes de classe
@@ -9,9 +9,9 @@ public abstract class Forme {
 
 	// Variables d'instances
 	
-	public int largeur;
-	public int hauteur;
-	public Point position;
+	private int largeur;
+	private int hauteur;
+	private Point position;
 
 	
 	
@@ -56,7 +56,7 @@ LARGEUR_PAR_DÉFAUT );
 	public Forme(Point position){
 		this(position,HAUTEUR_PAR_DÉFAUT,LARGEUR_PAR_DÉFAUT);
 	}
-
+	
 	// Méthodes d'instances génériques de la classe abstraite Forme
 
 	public Point getPosition(){
@@ -144,9 +144,13 @@ LARGEUR_PAR_DÉFAUT );
 
 	public String toString(){
 		String description;
-			description="["+this.getClass().getSimpleName()+"] pos: ("+getX()+","+getY()+") , dim : " +
-						this.getLargeur()+" x "+this.getHauteur()+", périmètre : " + this.périmètre()+
-						", aire: "+this.aire();
+		DecimalFormat df =new DecimalFormat();
+		df.setMinimumFractionDigits(0);
+		df.setMaximumFractionDigits(2);
+		df.setGroupingUsed(false);
+		description="["+this.getClass().getSimpleName()+"] pos : ("+getX()+","+getY()+") dim : " +
+						this.getLargeur()+" x "+this.getHauteur()+" périmètre : " + df.format(this.périmètre())+
+						" aire : "+df.format(this.aire());
 		return description;
 	}
 
@@ -155,5 +159,9 @@ LARGEUR_PAR_DÉFAUT );
 	public abstract double aire();
 
 	public abstract double périmètre();
+	
+	public abstract boolean contient(int x, int y);
+	
+	public abstract boolean contient(Point testPosition);
 	
 }

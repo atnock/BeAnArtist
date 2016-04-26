@@ -40,6 +40,6 @@ public class Point{
 	}
 	
 	public String toString(){
-		return "Le point est à  la position X = "+getX()+" et Y = "+getY();
+		return "("+getX()+","+getY()+")";
 	}
 }
