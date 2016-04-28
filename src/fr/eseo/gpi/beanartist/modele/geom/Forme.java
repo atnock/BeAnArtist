@@ -12,18 +12,11 @@ public abstract class Forme {
 	private int largeur;
 	private int hauteur;
 	private Point position;
-
-	
-	
 	/*
-
-
 /*
 * Les méthodes d ' instances de la classe abstraite Forme
 * seront héritées par les sous - classes de Forme .
 * Ces dernières pourront donc les utiliser .
-
-
 ..
 	 */
 	//Constructeurs

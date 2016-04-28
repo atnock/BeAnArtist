@@ -1,6 +1,7 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class Tracé extends Forme{
@@ -9,6 +10,7 @@ public class Tracé extends Forme{
 	
 	public Tracé(Point pos1, Point pos2){
 		super(pos1, Math.abs(pos1.getX()-pos2.getX()),Math.abs(pos1.getY()-pos2.getY()) );
+		System.out.println("boo");
 		Ligne trace = new Ligne(pos1);
 		System.out.println("yo1");
 		trace.setP2(pos2);
