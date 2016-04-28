@@ -35,8 +35,8 @@ public class Point{
 	}
 
 	public void déplacerDe(int vectX, int vectY){
-		this.coordX += vectX;
-		this.coordY += vectY;
+		this.coordX +=vectX;
+		this.coordY +=vectY;
 	}
 	
 	public String toString(){

@@ -37,17 +37,16 @@ public class Ellipse extends Forme {
 		return (double)Math.PI*(a+b)*(1+q);
 	}
 	public boolean contient(int x, int y){
-		int a = this.getLargeur();
-		int b = this.getHauteur();
-		return ((x*x)/(a*a) + (y*y)/(b*b)) <= 1;
+		//int a = this.getLargeur();
+		//int b = this.getHauteur()
+		return (x > this.getMinX() && x < this.getMinX() + this.getLargeur() && y > this.getMinY() && y < this.getMinY() + this.getHauteur());
+		//return ((x*x)/(a*a) + (y*y)/(b*b)) <= 1;
 	}
 	
 	public boolean contient(Point testPosition){
 		int x = testPosition.getX();
 		int y = testPosition.getY();
-		int a = this.getLargeur();
-		int b = this.getHauteur();
-		return ((x*x)/(a*a) + (y*y)/(b*b)) <= 1;
+		return contient(x,y);
 	}
 }
 

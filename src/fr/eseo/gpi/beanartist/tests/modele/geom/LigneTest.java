@@ -1,3 +1,4 @@
+
 package fr.eseo.gpi.beanartist.tests.modele.geom;
 import fr.eseo.gpi.beanartist.modele.geom.Ligne;
 
@@ -9,3 +10,4 @@ public class LigneTest {
 	}
 
 }
+
