@@ -6,8 +6,8 @@ public class CercleTest {
 		Cercle cercle1= new Cercle();
 		System.out.println(cercle1);
 		Cercle cercle2= new Cercle(2);
-		System.out.println(cercle2.calculAire());
-		System.out.println(cercle2.calculPerimetre());
+		System.out.println(cercle2.aire());
+		System.out.println(cercle2.périmètre());
 		
 	}
 

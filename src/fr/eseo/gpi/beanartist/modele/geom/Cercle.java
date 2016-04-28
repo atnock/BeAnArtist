@@ -1,6 +1,6 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 import fr.eseo.gpi.beanartist.modele.geom.Ellipse;
-//import fr.eseo.gpi.beanartist.modele.geom.Forme;
+//import fr.eseo.gpi.beanartist.modele.geom.Forme ;
 
 import fr.eseo.gpi.beanartist.modele.geom.Point;
 

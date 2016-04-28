@@ -9,8 +9,7 @@ public class Rectangle extends Forme{
 	public Point position;
 	public int x;
 	public int y;*/
-	static final int DEFAULT_LARGEUR=5;
-	static final int DEFAULT_HAUTEUR=6;
+
 	
 	//constructeurs
 	/*
