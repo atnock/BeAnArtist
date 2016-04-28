@@ -7,5 +7,6 @@ public class TracéTest {
 	public static void main(String [] args){
 		Tracé trace = new Tracé(new Point(15,20),new Point(34,89));
 		System.out.println(trace);
+
 	}
 }

@@ -1,6 +1,7 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class Tracé extends Forme{
