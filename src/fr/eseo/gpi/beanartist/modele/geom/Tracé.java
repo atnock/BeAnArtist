@@ -16,7 +16,7 @@ public class Tracé extends Forme{
 	}
 	
 	public void ajouterLigneVers(Point position){
-		Ligne trace = new Ligne(lignes.get(lignes.size()).getP2());
+		Ligne trace = new Ligne(lignes.get(lignes.size()-1).getP2());
 		trace.setP2(position);
 		lignes.add(trace);
 	}
