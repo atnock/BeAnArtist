@@ -1,5 +1,6 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 import java.text.DecimalFormat;
+
 public abstract class Forme {
 
 	//Constantes de classe
@@ -29,7 +30,6 @@ public abstract class Forme {
 	//Constructeurs
 
 	public Forme(Point position, int largeur, int hauteur){
-		System.out.println(position);
 		setPosition(position);
 		setLargeur(largeur);
 		setHauteur(hauteur);

@@ -5,9 +5,7 @@ import fr.eseo.gpi.beanartist.modele.geom.Tracé;
 
 public class TracéTest {
 	public static void main(String [] args){
-		System.out.println("yo");
 		Tracé trace = new Tracé(new Point(15,20),new Point(34,89));
-		System.out.println("yo2");
-		//System.out.println(trace);
+		System.out.println(trace);
 	}
 }

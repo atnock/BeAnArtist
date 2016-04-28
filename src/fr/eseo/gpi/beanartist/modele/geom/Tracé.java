@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Tracé extends Forme{
 	
-	private List<Ligne> lignes = new ArrayList<Ligne>();
+	private List<Ligne> lignes;
 	
 	public Tracé(Point pos1, Point pos2){
 		super(pos1, Math.abs(pos1.getX()-pos2.getX()),Math.abs(pos1.getY()-pos2.getY()) );
+		lignes = new ArrayList<Ligne>();
 		Ligne trace = new Ligne(pos1);
-		System.out.println("yo1");
 		trace.setP2(pos2);
 		lignes.add(trace);
 	}
@@ -30,21 +30,34 @@ public class Tracé extends Forme{
 	}
 	
 	public void setHauteur(int newHauteur){
-		int coef = newHauteur / this.getHauteur();
-		for(int i = 0; i <= lignes.size(); i++){
-			lignes.get(i).setHauteur(lignes.get(i).getHauteur()*coef);
+		if(lignes==null){
+			super.setLargeur(newHauteur);
+		} else {
+			int coef = newHauteur / this.getHauteur();
+			for(int i = 0; i < lignes.size(); i++){
+				lignes.get(i).setHauteur(lignes.get(i).getHauteur()*coef);
+			}
 		}
 	}
 	
 	public void setLargeur(int newLargeur){
-		int coef = newLargeur / this.getLargeur();
-		for(int i = 0; i <= lignes.size(); i++){
-			lignes.get(i).setLargeur(lignes.get(i).getLargeur()*coef);
+		if(lignes==null){
+			super.setLargeur(newLargeur);
+		} else {
+			int coef = newLargeur / this.getLargeur();
+			for(int i = 0; i < lignes.size(); i++){
+				lignes.get(i).setLargeur(lignes.get(i).getLargeur()*coef);
+			}
 		}
 	}
 	
 	public void setPosition(Point pos){
-		this.déplacerVers(pos.getX(), pos.getY());
+		if(lignes==null){
+			super.setPosition(pos);
+		} else {
+			this.déplacerVers(pos.getX(), pos.getY());
+		}
+		
 	}
 	
 	public List<Ligne> getLignes(){
@@ -52,7 +65,7 @@ public class Tracé extends Forme{
 	}
 	
 	public void déplacerDe(int deltaX, int deltaY){
-		for(int i = 0; i <= lignes.size(); i++){
+		for(int i = 0; i < lignes.size(); i++){
 			Point P1 = lignes.get(i).getP1();
 			P1.setX(P1.getX()+deltaX);
 			P1.setY(P1.getY()+deltaY);
@@ -71,7 +84,7 @@ public class Tracé extends Forme{
 	}
 	 
 	public boolean contient(Point P){
-		for(int i = 0; i <= lignes.size(); i++){
+		for(int i = 0; i < lignes.size(); i++){
 			if(lignes.get(i).contient(P)){
 				 return true;
 			 }
@@ -81,7 +94,7 @@ public class Tracé extends Forme{
 	
 	public double périmètre(){
 		double longueur = 0;
-		for(int i = 0; i <= lignes.size(); i++){
+		for(int i = 0; i < lignes.size(); i++){
 			longueur += lignes.get(i).périmètre();
 		}
 		return longueur;
