@@ -8,7 +8,9 @@ public class Tracé extends Forme{
 	private List<Ligne> lignes = new ArrayList<Ligne>();
 	
 	public Tracé(Point pos1, Point pos2){
+		super(pos1, Math.abs(pos1.getX()-pos2.getX()),Math.abs(pos1.getY()-pos2.getY()) );
 		Ligne trace = new Ligne(pos1);
+		System.out.println("yo1");
 		trace.setP2(pos2);
 		lignes.add(trace);
 	}

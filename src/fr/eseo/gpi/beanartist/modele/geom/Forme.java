@@ -18,13 +18,6 @@ public abstract class Forme {
 	/*
 
 
-public Forme (){
-this ( new Point () , HAUTEUR_PAR_DÉFAUT ,
-LARGEUR_PAR_DÉFAUT );
-}
-
-
-
 /*
 * Les méthodes d ' instances de la classe abstraite Forme
 * seront héritées par les sous - classes de Forme .
@@ -36,6 +29,7 @@ LARGEUR_PAR_DÉFAUT );
 	//Constructeurs
 
 	public Forme(Point position, int largeur, int hauteur){
+		System.out.println(position);
 		setPosition(position);
 		setLargeur(largeur);
 		setHauteur(hauteur);

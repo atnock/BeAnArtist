@@ -7,6 +7,7 @@ public class Point{
 	public Point(int coordX, int coordY){
 		this.coordX = coordX;
 		this.coordY = coordY;
+		System.out.println("yo4 " + toString());
 	}
 
 	public Point(){
