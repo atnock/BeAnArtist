@@ -31,7 +31,7 @@ public class Tracé extends Forme{
 	
 	public void setHauteur(int newHauteur){
 		if(lignes==null){
-			super.setLargeur(newHauteur);
+			super.setHauteur(newHauteur);
 		} else {
 			int coef = newHauteur / this.getHauteur();
 			for(int i = 0; i < lignes.size(); i++){
