@@ -106,6 +106,6 @@ public class Tracé extends Forme{
 	}
 	
 	public String toString(){
-		return "[Tracé] pos : ("+this.getX()+","+this.getY()+") dim : "+this.getHauteur()+" x "+this.getLargeur()+" longueur : "+this.périmètre()+" nbLignes : "+lignes.size();
+		return "[Tracé] pos : ("+this.getX()+","+this.getY()+") dim : "+this.getHauteur()+" x "+this.getLargeur()+" périmètre : "+this.périmètre()+" nbLignes : "+lignes.size();
 	}
 }
