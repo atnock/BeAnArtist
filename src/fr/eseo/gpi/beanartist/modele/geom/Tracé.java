@@ -17,7 +17,7 @@ public class Tracé extends Forme{
 	}
 	
 	public void ajouterLigneVers(Point position){
-		Ligne trace = new Ligne(lignes.get(lignes.size()).getP2());
+		Ligne trace = new Ligne(lignes.get(lignes.size()-1).getP2());
 		trace.setP2(position);
 		lignes.add(trace);
 	}
@@ -106,6 +106,6 @@ public class Tracé extends Forme{
 	}
 	
 	public String toString(){
-		return "[Tracé] pos : ("+this.getX()+","+this.getY()+") dim : "+this.getHauteur()+" x "+this.getLargeur()+" périmètre : "+this.périmètre()+" nbLignes : "+lignes.size();
+		return "[Tracé] pos : ("+this.getX()+","+this.getY()+") dim : "+this.getHauteur()+" x "+this.getLargeur()+" longueur : "+this.périmètre()+" nbLignes : "+lignes.size();
 	}
 }

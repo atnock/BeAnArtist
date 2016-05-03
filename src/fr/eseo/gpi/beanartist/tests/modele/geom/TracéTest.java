@@ -18,35 +18,6 @@ public class TracéTest {
 		System.out.println(trace1.aire());
 		System.out.println(trace1.toString());
 		
-		Tracé t = new Tracé(new Point(300, 200), new Point(119, 259));
-		t.ajouterLigneVers(new Point(231, 105));
-		DecimalFormat df = new DecimalFormat("#.##", DecimalFormatSymbols.getInstance());
-		t.getLignes().size();
-		t.toString();
-		t.ajouterLigneVers(new Point(231, 295));
-		t.getLignes().size();
-		t.toString();
-		t.ajouterLigneVers(new Point(119, 141));
-		t.getLignes().size();
-		t.toString();
-		t.ajouterLigneVers(new Point(300, 200));
-		t.getLignes().size();
-		t.toString();
-		Tracé test = new Tracé(new Point(40, 40), new Point(50, 40));
-		test.getHauteur();
-		test.getLargeur();
-		test.ajouterLigneVers(new Point(50, 30));
-		test.getHauteur();
-		test.getLargeur();
-		test.ajouterLigneVers(new Point(30, 30));
-		test.getHauteur();
-		test.getLargeur();
-		test.ajouterLigneVers(new Point(30, 60));
-		test.getHauteur();
-		test.getLargeur();
-		test.ajouterLigneVers(new Point(60, 60));
-		test.getHauteur();
-		test.getLargeur();
-		test.ajouterLigneVers(new Point(60, 20));
+		
 	}
 }
