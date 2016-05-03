@@ -2,7 +2,6 @@ package fr.eseo.gpi.beanartist.vue.ui;
 
 import java.awt.Color;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class FenêtreBeAnArtist extends JFrame{
 	
@@ -32,7 +31,7 @@ public class FenêtreBeAnArtist extends JFrame{
 		setLocationRelativeTo(null);
 		setBackground(fond);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		associerPanneauDessin(100,100,Color.blue);
+		associerPanneauDessin(largeur,hauteur,Color.blue);
 		setVisible(true);
 		
 	}
@@ -42,8 +41,9 @@ public class FenêtreBeAnArtist extends JFrame{
 	}
 	
 	private void associerPanneauDessin(int largeur, int hauteur, Color fond){
-		this.panneauDessin = new PanneauDessin(30,30,Color.YELLOW);
+		this.panneauDessin = new PanneauDessin(largeur,hauteur,fond);
 		setContentPane(panneauDessin);
+		setSize(largeur, hauteur);
 	}
 	
 	public void setPanneauDessin(PanneauDessin panneau){
