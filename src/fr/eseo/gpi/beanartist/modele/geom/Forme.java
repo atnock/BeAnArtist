@@ -23,9 +23,9 @@ public abstract class Forme {
 	//Constructeurs
 
 	public Forme(Point position, int largeur, int hauteur){
-		setPosition(position);
-		setLargeur(largeur);
-		setHauteur(hauteur);
+		this.position = position;
+		this.largeur = largeur;
+		this.hauteur = hauteur;
 	}
 	
 	public Forme(int x,int y,int largeur, int hauteur){
