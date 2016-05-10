@@ -1,6 +1,7 @@
 package fr.eseo.gpi.beanartist.controleur.outils;
 
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
@@ -8,7 +9,7 @@ import fr.eseo.gpi.beanartist.modele.geom.Point;
 import fr.eseo.gpi.beanartist.vue.geom.VueForme;
 import fr.eseo.gpi.beanartist.vue.ui.PanneauDessin;
 
-public abstract class Outil {
+public abstract class Outil implements MouseListener {
 	
 	private PanneauDessin panneauDessin;
 	private Point début;
@@ -16,6 +17,9 @@ public abstract class Outil {
 	
 	public Outil(PanneauDessin newPanneauDessin){
 		this.panneauDessin = newPanneauDessin;
+		System.out.println("on ajoute le mouse listener");
+		panneauDessin.addMouseListener(this);
+		
 	}
 	
 	public void associer(PanneauDessin thePanneauDessin){
@@ -55,6 +59,7 @@ public abstract class Outil {
 	
 	public void mousePressed(MouseEvent event){
 		this.début = new Point(event.getX(), event.getY());
+		System.out.println("sourie appuyée");
 	}
 	
 	public void mouseClicked(MouseEvent event){
@@ -64,6 +69,7 @@ public abstract class Outil {
 	public void mouseReleased(MouseEvent event){
 		this.fin = new Point(event.getX(), event.getY());
 		VueForme maVue = this.créerVueForme();
+		System.out.println("sourie released");
 		this.panneauDessin.ajouterVueForme(maVue);
 	}
 	

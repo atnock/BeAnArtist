@@ -17,9 +17,11 @@ public class VueRectangle extends VueForme {
 	
 	public void affiche(Graphics2D g2d){
 		if(this.estRempli()){
-			g2d.fillRect(this.getForme().getX(), this.getForme().getY(), this.getForme().getLargeur(), this.getForme().getHauteur());
 			g2d.setColor(this.getCouleurLigne());
+			g2d.fillRect(this.getForme().getX(), this.getForme().getY(), this.getForme().getLargeur(), this.getForme().getHauteur());
+		
 		} else {
+			g2d.setColor(this.getCouleurLigne());
 			g2d.drawRect(this.getForme().getX(), this.getForme().getY(), this.getForme().getLargeur(), this.getForme().getHauteur());
 		}
 	}

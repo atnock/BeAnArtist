@@ -1,5 +1,7 @@
 package fr.eseo.gpi.beanartist.controleur.outils;
 
+import java.awt.Color;
+
 import fr.eseo.gpi.beanartist.modele.geom.Ligne;
 import fr.eseo.gpi.beanartist.vue.geom.VueLigne;
 import fr.eseo.gpi.beanartist.vue.ui.PanneauDessin;
@@ -8,12 +10,15 @@ public class OutilLigne extends OutilForme{
 	
 	public OutilLigne(PanneauDessin newPanneauDessin){
 		super(newPanneauDessin);
+		System.out.println("Outil ligne");
 	}
 	
 	protected VueLigne créerVueForme(){
 		Ligne ligne = new Ligne(super.getDébut());
 		ligne.setP2(super.getFin());
-		VueLigne vueligne = new VueLigne(ligne, false);
+		VueLigne vueligne = new VueLigne(ligne, Color.RED, false);
+		System.out.println("nouvelle ligne");
+		System.out.println(ligne);
 		return vueligne;
 	}
 }

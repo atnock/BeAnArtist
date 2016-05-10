@@ -2,12 +2,15 @@ package fr.eseo.gpi.beanartist.vue.ui;
 
 import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.BoxLayout;
+import fr.eseo.gpi.beanartist.vue.ui.PanneauBarreOutil;
 
 public class FenêtreBeAnArtist extends JFrame{
 	
 	public static final String TITRE_PAR_DÉFAUT = "Be An Artist";
 	
 	private PanneauDessin panneauDessin;
+	private PanneauBarreOutil panneauBarreOutil;
 	
 	public FenêtreBeAnArtist(){
 		this(TITRE_PAR_DÉFAUT);
@@ -26,14 +29,20 @@ public class FenêtreBeAnArtist extends JFrame{
 	}
 	
 	public FenêtreBeAnArtist(String titre, int largeur, int hauteur, Color fond){
-		setTitle(titre);
-		setSize(largeur, hauteur);
-		setLocationRelativeTo(null);
-		setBackground(fond);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		associerPanneauDessin(largeur,hauteur,Color.blue);
-		setVisible(true);
+		this.setTitle(titre);
+		this.setSize(largeur, hauteur);
+		this.setLocationRelativeTo(null);
+		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		this.setBackground(fond);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.associerPanneauDessin(largeur,hauteur,fond);
+		this.associerBarreOutil();
+		this.setVisible(true);
 		
+	}
+	
+	private void associerBarreOutil(){
+		this.panneauBarreOutil = new PanneauBarreOutil(this);
 	}
 	
 	private void associerPanneauDessin(int largeur, int hauteur){
@@ -52,6 +61,14 @@ public class FenêtreBeAnArtist extends JFrame{
 	
 	public PanneauDessin getPanneauDessin(){
 		return this.panneauDessin;
+	}
+	
+	public void setPanneauBarreOutil(PanneauBarreOutil newPanneauBarreOutil){
+		this.panneauBarreOutil = newPanneauBarreOutil;
+	}
+	
+	public PanneauBarreOutil getPanneauBarreOutil(){
+		return this.panneauBarreOutil;
 	}
 	
 }

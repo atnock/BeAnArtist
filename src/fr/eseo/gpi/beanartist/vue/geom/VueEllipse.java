@@ -16,9 +16,10 @@ public class VueEllipse extends VueForme {
 	
 	public void affiche(Graphics2D g2d){
 		if(this.estRempli()){
-			g2d.fillOval(this.getForme().getX(), this.getForme().getY(), this.getForme().getLargeur(), this.getForme().getHauteur());
 			g2d.setColor(this.getCouleurLigne());
+			g2d.fillOval(this.getForme().getX(), this.getForme().getY(), this.getForme().getLargeur(), this.getForme().getHauteur());
 		} else {
+			g2d.setColor(this.getCouleurLigne());
 			g2d.drawOval(this.getForme().getX(), this.getForme().getY(), this.getForme().getLargeur(), this.getForme().getHauteur());
 		}
 	}

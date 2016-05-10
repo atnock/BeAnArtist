@@ -40,6 +40,8 @@ public class PanneauDessin extends JPanel {
 	
 	public void ajouterVueForme(VueForme vueForme){
 		vueFormes.add(vueForme);
+		System.out.println("ajouter vue forme");
+		repaint();
 	}
 	
 	public List<VueForme> getVueFormes(){
