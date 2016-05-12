@@ -9,10 +9,10 @@ public class Cercle extends Ellipse {
 	public static final int HAUTEUR_PAR_DEFAUT=150;
 	//Constructeurs
 
-	public Cercle(Point centre,int hauteur){
+	public Cercle(Point centre,int hauteur){ //test 
 		super(centre,hauteur, hauteur); 
 	}
-	public Cercle (int x, int y, int hauteur){
+	public Cercle (int x, int y, int hauteur){ //test 
 		this(new Point(x,y), hauteur);
 	}
 	

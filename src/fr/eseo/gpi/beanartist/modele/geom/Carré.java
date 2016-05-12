@@ -12,31 +12,31 @@
 		super(position,coté , coté);
 	}
 
-	public Carré (int coté) {
+	public Carré (int coté) { // test 
 		this(new Point(),coté);
 	}
 	
-	public Carré (int x, int y, int coté) {
+	public Carré (int x, int y, int coté) { //test  
 		this(new Point(x, y), coté);
 	}
 	
-	public Carré (Point position){
+	public Carré (Point position){ //test
 		this(position,Forme.LARGEUR_PAR_DÉFAUT);
 	}
 	
-	public Carré (){
+	public Carré (){ //test
 		this(new Point(),Forme.LARGEUR_PAR_DÉFAUT);
 	}
 	
 	
 	//getset
 	
-	public void setHauteur(int hauteur){
+	public void setHauteur(int hauteur){ // test
 		super.setHauteur(hauteur);
 		super.setLargeur(hauteur);
 	}
 	
-	public void setLargeur(int largeur){
+	public void setLargeur(int largeur){ //test
 		super.setLargeur(largeur);
 		super.setHauteur(largeur);
 	}
