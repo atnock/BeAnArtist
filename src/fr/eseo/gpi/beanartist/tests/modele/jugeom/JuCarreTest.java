@@ -9,7 +9,7 @@ import fr.eseo.gpi.beanartist.modele.geom.Point;
 public class JuCarreTest {
 	
 	@Test
-	public void testConstructeurCoté() { //constructeur vide
+	public void testConstructeurCoté() { 
 		Carré c = new Carré (5);
 		assertEquals("vérification de la largeur :", 5, c.getLargeur());
 		assertEquals("vérification de la hauteur :", 5, c.getHauteur());
@@ -18,7 +18,7 @@ public class JuCarreTest {
 	}
 	
 	@Test
-	public void testConstructeurAll() { //constructeur vide
+	public void testConstructeurAll() { 
 		Carré c = new Carré (1,2,5);
 		assertEquals("vérification de la largeur :", 5, c.getLargeur());
 		assertEquals("vérification de la hauteur :", 5, c.getHauteur());
@@ -27,7 +27,7 @@ public class JuCarreTest {
 	}
 
 	@Test
-	public void testConstructeurPosition() { //constructeur vide
+	public void testConstructeurPosition() { 
 		Point p = new Point (1,2);
 		Carré c = new Carré (p);
 		assertEquals("vérification de la largeur :", 150, c.getLargeur());
@@ -37,7 +37,7 @@ public class JuCarreTest {
 	}
 	
 	@Test
-	public void testConstructeurVide() { //constructeur vide
+	public void testConstructeurVide() { 
 		Carré c = new Carré ();
 		assertEquals("vérification de la largeur :", 150, c.getLargeur());
 		assertEquals("vérification de la hauteur :", 150, c.getHauteur());
@@ -46,11 +46,14 @@ public class JuCarreTest {
 	}
 	
 	@Test
-	public void testGetSet() { //constructeur vide
+	public void testGetSet() { 
 		Carré c = new Carré ();
 		c.setHauteur(10);
+		assertEquals("vérification de la largeur :", 10, c.getLargeur());
+		assertEquals("vérification de la hauteur :", 10, c.getHauteur());
 		c.setLargeur(5);
 		assertEquals("vérification de la largeur :", 5, c.getLargeur());
-		assertEquals("vérification de la hauteur :", 10, c.getHauteur());
+		assertEquals("vérification de la hauteur :", 5, c.getHauteur());
 	}
+	
 }

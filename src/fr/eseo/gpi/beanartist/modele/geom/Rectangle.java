@@ -32,16 +32,16 @@ public class Rectangle extends Forme{
 	public Rectangle(Point position,int largeur, int hauteur){
 		super(position, largeur, hauteur);
 	}
-	public Rectangle(int largeur, int hauteur){ //test 
+	public Rectangle(int largeur, int hauteur){ 
 		this(new Point(), largeur , hauteur);
 	}
-	public Rectangle(Point position){ //test
+	public Rectangle(Point position){ 
 		this(position , Forme.LARGEUR_PAR_DÉFAUT, Forme.HAUTEUR_PAR_DÉFAUT);
 	}
-	public Rectangle(){ //test
+	public Rectangle(){
 		this(new Point(), Forme.LARGEUR_PAR_DÉFAUT, Forme.HAUTEUR_PAR_DÉFAUT);
 	}
-	public Rectangle (int x, int y , int largeur , int hauteur){ //test
+	public Rectangle (int x, int y , int largeur , int hauteur){ 
 		this(new Point(x, y), largeur , hauteur);
 	}
 	/*
@@ -66,14 +66,14 @@ public class Rectangle extends Forme{
 	}
 	*/
 	//méthodes
-	public double aire(){ //test
+	public double aire(){ 
 		return this.getHauteur()*this.getLargeur();
 	}
-	public double périmètre(){//test 
+	public double périmètre(){
 		return 2*this.getLargeur()+2*this.getHauteur();
 	}
 	
-	public boolean contient(int x, int y){ //test 
+	public boolean contient(int x, int y){  
 		return (x > this.getMinX() && x < this.getMinX() + this.getLargeur() && y > this.getMinY() && y < this.getMinY() + this.getHauteur());
 	}
 	

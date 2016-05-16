@@ -9,20 +9,20 @@ public class Cercle extends Ellipse {
 	public static final int HAUTEUR_PAR_DEFAUT=150;
 	//Constructeurs
 
-	public Cercle(Point centre,int hauteur){ //test 
+	public Cercle(Point centre,int hauteur){ 
 		super(centre,hauteur, hauteur); 
 	}
-	public Cercle (int x, int y, int hauteur){ //test 
+	public Cercle (int x, int y, int hauteur){
 		this(new Point(x,y), hauteur);
 	}
 	
-	public Cercle(int hauteur){
+	public Cercle(int hauteur){ 
 		this(new Point(), hauteur);
 	}
-	public Cercle (Point centre){
+	public Cercle (Point centre){ 
 		this(centre, HAUTEUR_PAR_DEFAUT);
 	}
-	public Cercle(){
+	public Cercle(){ 
 		this(new Point(), HAUTEUR_PAR_DEFAUT);
 	}
 	

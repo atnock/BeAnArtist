@@ -86,8 +86,6 @@ public abstract class Forme {
 		position.déplacerVers(this.getX(),y);
 	}
 	
-	
-		
 	public int getMaxX(){
 		int max = getX()+this.largeur;
 		if (max<this.getX()){

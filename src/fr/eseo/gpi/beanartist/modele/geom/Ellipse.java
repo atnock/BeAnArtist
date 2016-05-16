@@ -20,10 +20,10 @@ public class Ellipse extends Forme {
 	public Ellipse (Point position){
 		super(position);
 	}
+	
 	public Ellipse (int x , int y , int largeur , int hauteur){
 		super(new Point (x, y), largeur , hauteur );
 	}
-
 	
 	public double aire(){
 		return (double)Math.PI *0.5*getLargeur() * 0.5*getHauteur();
@@ -36,6 +36,7 @@ public class Ellipse extends Forme {
 		double q = (3*h)/(10+ Math.sqrt(4-3*h));
 		return (double)Math.PI*(a+b)*(1+q);
 	}
+	
 	public boolean contient(int x, int y){
 		//int a = this.getLargeur();
 		//int b = this.getHauteur()

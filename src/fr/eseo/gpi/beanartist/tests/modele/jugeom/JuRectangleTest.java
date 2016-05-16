@@ -10,7 +10,7 @@ import fr.eseo.gpi.beanartist.modele.geom.Point;
 public class JuRectangleTest {
 
 	@Test
-	public void testConstructeurVide() { //constructeur vide
+	public void testConstructeurVide() {
 		Rectangle r = new Rectangle ();
 		assertEquals("vérification de la largeur :", 150, r.getLargeur());
 		assertEquals("vérification de la hauteur :", 150, r.getHauteur());
