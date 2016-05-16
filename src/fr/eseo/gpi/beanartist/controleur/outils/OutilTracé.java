@@ -40,6 +40,9 @@ public class OutilTracé extends OutilForme {
     super.getPanneauDessin().repaint();
   }
   
+  @Override
+  public void mouseClicked(MouseEvent event) {}
+  
   protected VueTracé créerVueForme() {
     int debutX = super.getDébut().getX();
     int finX = super.getFin().getX();
