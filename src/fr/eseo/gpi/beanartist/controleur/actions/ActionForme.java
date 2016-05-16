@@ -6,6 +6,7 @@ import fr.eseo.gpi.beanartist.controleur.outils.OutilCercle;
 import fr.eseo.gpi.beanartist.controleur.outils.OutilEllipse;
 import fr.eseo.gpi.beanartist.controleur.outils.OutilLigne;
 import fr.eseo.gpi.beanartist.controleur.outils.OutilRectangle;
+import fr.eseo.gpi.beanartist.controleur.outils.OutilTracé;
 import fr.eseo.gpi.beanartist.vue.ui.FenêtreBeAnArtist;
 
 import java.awt.event.ActionEvent;
@@ -18,7 +19,7 @@ public class ActionForme extends AbstractAction {
   
   public static final String NOM_ACTION_LIGNE = "Tracer Ligne";
   public static final String NOM_ACTION_RECTANGLE = "Tracer Rectangle";
-  public static final String NOM_ACTION_CARRÉ = "Tracer Rectangle";
+  public static final String NOM_ACTION_CARRÉ = "Tracer Carré";
   public static final String NOM_ACTION_CERCLE = "Tracer Cercle";
   public static final String NOM_ACTION_ELLIPSE = "Tracer Ellipse";
   public static final String NOM_ACTION_TRACÉ = "Tracer Libre";
@@ -63,7 +64,7 @@ public class ActionForme extends AbstractAction {
     }
     
     if (event.getActionCommand() == NOM_ACTION_TRACÉ) {
-      monOutil = new OutilEllipse(fenêtreSave.getPanneauDessin());
+      monOutil = new OutilTracé(fenêtreSave.getPanneauDessin());
       monOutil.associer(fenêtreSave.getPanneauDessin());
       fenêtreSave.getPanneauDessin().setOutilCourant(monOutil);
     }

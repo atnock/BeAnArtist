@@ -1,9 +1,5 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 
-import fr.eseo.gpi.beanartist.modele.geom.Ellipse;
-
-import fr.eseo.gpi.beanartist.modele.geom.Point;
-
 public class Cercle extends Ellipse {
   
   public static final int HAUTEUR_PAR_DEFAUT = 150;

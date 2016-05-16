@@ -22,12 +22,12 @@ public class OutilSélection extends Outil {
   public void mouseClicked(MouseEvent event) {
     boolean selectionValide = false;
     PanneauDessin panneau = super.getPanneauDessin();
-    Forme formeCourante = panneau.getVueFormeCourante().getForme();
     for (int index = 0; index < super.getPanneauDessin().getVueFormes().size(); index++) {
       if (panneau.getVueFormes().get(index).getForme().contient(event.getX(), event.getY())) {
         selectionValide = true;
         super.getPanneauDessin().setVueFormeCourante(
                        super.getPanneauDessin().getVueFormes().get(index));
+        Forme formeCourante = panneau.getVueFormeCourante().getForme();
         super.getPanneauDessin().setSelectionVueForme(
               new VueRectangle(new Rectangle(
                   new Point(formeCourante.getX() - 5, formeCourante.getY() - 5),
@@ -51,11 +51,11 @@ public class OutilSélection extends Outil {
   @Override
   public void mouseDragged(MouseEvent event) {
     PanneauDessin panneau = super.getPanneauDessin();
-    Forme formeCourante = panneau.getVueFormeCourante().getForme();
-    Forme formeSelectionCourante = panneau.getSelectionVueForme().getForme();
     if (super.getPanneauDessin().getVueFormeCourante() != null) {
+      Forme formeSelectionCourante = panneau.getSelectionVueForme().getForme();
       int valCoinXSelection = formeSelectionCourante.getMaxX() - event.getX();
       int valCoinYSelection = formeSelectionCourante.getMaxY() - event.getY();
+      Forme formeCourante = panneau.getVueFormeCourante().getForme();
       int valCoinXForme = formeCourante.getMaxX() - event.getX();
       int valCoinYForme = formeCourante.getMaxY() - event.getY();
       formeSelectionCourante.déplacerVers(event.getX() - 5 - valCoinXSelection,

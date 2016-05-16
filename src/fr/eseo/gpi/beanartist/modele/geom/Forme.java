@@ -4,24 +4,13 @@ import java.text.DecimalFormat;
 
 public abstract class Forme {
 
-  //Constantes de classe
-
   public static final int LARGEUR_PAR_DÉFAUT = 150;
   public static final int HAUTEUR_PAR_DÉFAUT = 150;
-
-  // Variables d'instances
   
   private int largeur;
   private int hauteur;
+  
   private Point position;
-  /*
-/*
-* Les méthodes d ' instances de la classe abstraite Forme
-* seront héritées par les sous - classes de Forme .
-* Ces dernières pourront donc les utiliser .
-..
-   */
-  //Constructeurs
 
   public Forme(Point position, int largeur, int hauteur) {
     this.position = position;
@@ -45,8 +34,6 @@ public abstract class Forme {
     this(position,HAUTEUR_PAR_DÉFAUT,LARGEUR_PAR_DÉFAUT);
   }
   
-  // Méthodes d'instances génériques de la classe abstraite Forme
-
   public Point getPosition() {
     return position;
   }

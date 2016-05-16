@@ -1,8 +1,5 @@
 package fr.eseo.gpi.beanartist.modele.geom;
 
-import fr.eseo.gpi.beanartist.modele.geom.Forme;
-import fr.eseo.gpi.beanartist.modele.geom.Point;
-
 public class Ellipse extends Forme {
 
   public Ellipse() {
@@ -47,5 +44,3 @@ public class Ellipse extends Forme {
     return contient(testPosition.getX(),testPosition.getY());
   }
 }
-
-

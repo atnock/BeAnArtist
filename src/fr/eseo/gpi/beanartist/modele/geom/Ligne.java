@@ -33,8 +33,8 @@ public class Ligne extends Forme {
   }
    
   public Point getP2() {
-    Point P1 = this.getP1();
-    return new Point(P1.getX() + this.getLargeur(), P1.getY() + this.getHauteur());
+    Point point1 = this.getP1();
+    return new Point(point1.getX() + this.getLargeur(), point1.getY() + this.getHauteur());
   }
    
   public void setP1(Point newPoint) {
@@ -99,16 +99,19 @@ public class Ligne extends Forme {
     return contient(new Point(coordX,coordY));
   }
    
-  public boolean contient(Point P) {
-    Point P1 = this.getP1();
-    Point P2 = this.getP2();
-    double distanceP1P = Math.abs(distance(P1.getX(), P.getX(), P1.getY(), P.getY()));
-    double distanceP2P = Math.abs(distance(P.getX(), P2.getX(), P.getY(), P2.getY()));
-    double distanceP1P2 = Math.abs(distance(P1.getX(), P2.getX(), P1.getY(), P2.getY()));
+  public boolean contient(Point point0) {
+    Point point1 = this.getP1();
+    Point point2 = this.getP2();
+    double distanceP1P = Math.abs(distance(point1.getX(),
+        point0.getX(), point1.getY(), point0.getY()));
+    double distanceP2P = Math.abs(distance(point0.getX(),
+        point2.getX(), point0.getY(), point2.getY()));
+    double distanceP1P2 = Math.abs(distance(point1.getX(),
+        point2.getX(), point1.getY(), point2.getY()));
     return distanceP1P + distanceP2P - distanceP1P2 <= EPSILON;
   }
    
-  public String toString(){
+  public String toString() {
     return "[Ligne] p1 : (" + this.getX() + "," + this.getY() + ") p2 : (" + this.getP2().getX()
            + "," + this.getP2().getY() + ") longeur : " + this.périmètre();
   }
