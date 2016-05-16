@@ -1,8 +1,8 @@
-package fr.eseo.gpi.beanartist.tests.controleur.actions;
+package fr.eseo.gpi.beanartist;
 
 import fr.eseo.gpi.beanartist.vue.ui.FenêtreBeAnArtist;
 
-public class ActionEffacerTest {
+public class BeAnArtist {
 	public static void main(String [] args){
 		new FenêtreBeAnArtist("Be An Artist",1000,1000);
 	}

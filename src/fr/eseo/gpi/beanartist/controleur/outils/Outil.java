@@ -1,7 +1,6 @@
 package fr.eseo.gpi.beanartist.controleur.outils;
 
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
@@ -9,7 +8,7 @@ import fr.eseo.gpi.beanartist.modele.geom.Point;
 import fr.eseo.gpi.beanartist.vue.geom.VueForme;
 import fr.eseo.gpi.beanartist.vue.ui.PanneauDessin;
 
-public abstract class Outil implements MouseListener {
+public abstract class Outil implements MouseListener, MouseMotionListener{
 	
 	private PanneauDessin panneauDessin;
 	private Point début;
@@ -17,14 +16,12 @@ public abstract class Outil implements MouseListener {
 	
 	public Outil(PanneauDessin newPanneauDessin){
 		this.panneauDessin = newPanneauDessin;
-		System.out.println("on ajoute le mouse listener");
-		panneauDessin.addMouseListener(this);
-		
 	}
 	
 	public void associer(PanneauDessin thePanneauDessin){
 		this.libérer();
-		this.panneauDessin = thePanneauDessin;
+		thePanneauDessin.addMouseListener(this);
+		thePanneauDessin.addMouseMotionListener(this);
 		thePanneauDessin.setOutilCourant(this);
 	}
 	
@@ -37,8 +34,12 @@ public abstract class Outil implements MouseListener {
 	}
 	
 	private void libérer(){
-		this.panneauDessin.setOutilCourant(null);
-		this.panneauDessin = null;
+		if(this.panneauDessin.getMouseListeners().length > 0){
+			this.panneauDessin.removeMouseListener(this.panneauDessin.getMouseListeners()[0]);
+		}
+		if (this.panneauDessin.getMouseMotionListeners().length > 0){
+			this.panneauDessin.removeMouseMotionListener(this.panneauDessin.getMouseMotionListeners()[0]);
+		}
 	}
 	
 	public void setDébut(Point point){
@@ -57,37 +58,13 @@ public abstract class Outil implements MouseListener {
 		return this.fin;
 	}
 	
-	public void mousePressed(MouseEvent event){
-		this.début = new Point(event.getX(), event.getY());
-		System.out.println("sourie appuyée");
-	}
-	
-	public void mouseClicked(MouseEvent event){
-		
-	}
-	
-	public void mouseReleased(MouseEvent event){
-		this.fin = new Point(event.getX(), event.getY());
-		VueForme maVue = this.créerVueForme();
-		System.out.println("sourie released");
-		this.panneauDessin.ajouterVueForme(maVue);
-	}
-	
-	public void mouseEntered(MouseEvent event){
-		
-	}
-	
-	public void mouseExited(MouseEvent event){
-		
-	}
-	
-	public void mouseDragged(MouseEvent event){
-		
-	}
-	
-	public void mouseMoved(MouseEvent event){
-		
-	}
+	public void mousePressed(MouseEvent event){}
+	public void mouseClicked(MouseEvent event){}
+	public void mouseReleased(MouseEvent event){}
+	public void mouseEntered(MouseEvent event){}
+	public void mouseExited(MouseEvent event){}
+	public void mouseDragged(MouseEvent event){}
+	public void mouseMoved(MouseEvent event){}
 	
 	protected abstract VueForme créerVueForme();
 }

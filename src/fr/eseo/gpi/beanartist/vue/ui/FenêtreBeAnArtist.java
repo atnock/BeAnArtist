@@ -1,8 +1,10 @@
 package fr.eseo.gpi.beanartist.vue.ui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
-import javax.swing.BoxLayout;
 import fr.eseo.gpi.beanartist.vue.ui.PanneauBarreOutil;
 
 public class FenêtreBeAnArtist extends JFrame{
@@ -30,9 +32,9 @@ public class FenêtreBeAnArtist extends JFrame{
 	
 	public FenêtreBeAnArtist(String titre, int largeur, int hauteur, Color fond){
 		this.setTitle(titre);
-		this.setSize(largeur, hauteur);
+		this.setPreferredSize(new Dimension(largeur, hauteur));
 		this.setLocationRelativeTo(null);
-		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		this.setLayout(new BorderLayout());
 		this.setBackground(fond);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.associerPanneauDessin(largeur,hauteur,fond);
@@ -51,7 +53,7 @@ public class FenêtreBeAnArtist extends JFrame{
 	
 	private void associerPanneauDessin(int largeur, int hauteur, Color fond){
 		this.panneauDessin = new PanneauDessin(largeur,hauteur,fond);
-		setContentPane(panneauDessin);
+		this.getContentPane().add(panneauDessin);
 		setSize(largeur, hauteur);
 	}
 	

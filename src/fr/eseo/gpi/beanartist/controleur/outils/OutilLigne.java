@@ -14,8 +14,11 @@ public class OutilLigne extends OutilForme{
 	}
 	
 	protected VueLigne créerVueForme(){
+		System.out.println("1");
 		Ligne ligne = new Ligne(super.getDébut());
+		System.out.println("2");
 		ligne.setP2(super.getFin());
+		System.out.println("3");
 		VueLigne vueligne = new VueLigne(ligne, Color.RED, false);
 		System.out.println("nouvelle ligne");
 		System.out.println(ligne);

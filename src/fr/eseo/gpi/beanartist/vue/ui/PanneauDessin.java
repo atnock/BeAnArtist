@@ -20,8 +20,11 @@ public class PanneauDessin extends JPanel {
 	
 	private List<VueForme> vueFormes= new ArrayList<VueForme>();
 	private Outil outilCourant;
+	private VueForme vueFormeCourante;
+	private VueForme selectionVueForme;
 	private boolean modeRemplissage = false;
 	private Color couleurLigne = COULEUR_LIGNE_PAR_DÉFAUT;
+	private Color couleurFond = COULEUR_LIGNE_PAR_DÉFAUT;
 	
 	private FenêtreBeAnArtist fenêtre;
 	
@@ -29,7 +32,8 @@ public class PanneauDessin extends JPanel {
 		this(largeurZone, hauteurZone, COULEUR_FOND_PAR_DÉFAUT);
 	}
 	
-	public PanneauDessin(int largeurZone, int hauteurZone, Color couleurFond){
+	public PanneauDessin(int largeurZone, int hauteurZone, Color newCouleurFond){
+		couleurFond = newCouleurFond;
 		setBackground(couleurFond);
 		setSize(largeurZone, hauteurZone);
 	}
@@ -40,7 +44,11 @@ public class PanneauDessin extends JPanel {
 	
 	public void ajouterVueForme(VueForme vueForme){
 		vueFormes.add(vueForme);
-		System.out.println("ajouter vue forme");
+		repaint();
+	}
+	
+	public void supprimerVueForme(VueForme vueForme){
+		vueFormes.remove(vueForme);
 		repaint();
 	}
 	
@@ -54,6 +62,9 @@ public class PanneauDessin extends JPanel {
 		for(int i = 0; i < vueFormes.size(); i++){
 			vueFormes.get(i).affiche(g2d);
 		}
+		if(selectionVueForme != null){
+			selectionVueForme.affiche(g2d);
+		}
 		g2d.dispose();
 	}
 	
@@ -65,7 +76,27 @@ public class PanneauDessin extends JPanel {
 		this.outilCourant = newOutil;
 	}
 	
+	public VueForme getVueFormeCourante(){
+		return this.vueFormeCourante;
+	}
+	
+	public void setVueFormeCourante(VueForme newVueForme){
+		this.vueFormeCourante = newVueForme;
+	}
+	
+	public VueForme getSelectionVueForme(){
+		return this.selectionVueForme;
+	}
+	
+	public void setSelectionVueForme(VueForme newVueForme){
+		this.selectionVueForme = newVueForme;
+	}
+	
 	public boolean getModeRemplissage(){
+		return this.modeRemplissage;
+	}
+	
+	public boolean estModeRemplissage(){
 		return this.modeRemplissage;
 	}
 	
@@ -79,6 +110,15 @@ public class PanneauDessin extends JPanel {
 	
 	public void setCouleurLigne(Color newCouleurLigne){
 		this.couleurLigne = newCouleurLigne;
+	}
+	
+	public Color getCouleurFond(){
+		return this.couleurFond;
+	}
+	
+	public void setCouleurFond(Color newCouleurFond){
+		this.couleurFond = newCouleurFond;
+		this.setBackground(couleurFond);
 	}
 	
 }

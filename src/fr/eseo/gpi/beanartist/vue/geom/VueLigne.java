@@ -7,6 +7,15 @@ import fr.eseo.gpi.beanartist.modele.geom.Ligne;
 import fr.eseo.gpi.beanartist.vue.ui.PanneauDessin;
 
 public class VueLigne extends VueForme {
+	
+	public VueLigne(Ligne ligne){
+		this(ligne, false);
+	}
+	
+	public VueLigne(Ligne ligne, Color couleur){
+		this(ligne, couleur, false);
+	}
+	
 	public VueLigne(Ligne ligne, boolean rempli){
 		this(ligne, COULEUR_LIGNE_PAR_DÉFAUT, rempli);
 	}
