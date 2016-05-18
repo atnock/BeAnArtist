@@ -19,7 +19,7 @@ public class OutilLigne extends OutilForme {
     System.out.println("2");
     ligne.setP2(super.getFin());
     System.out.println("3");
-    VueLigne vueligne = new VueLigne(ligne, Color.RED, false);
+    VueLigne vueligne = new VueLigne(ligne, super.getPanneauDessin().getCouleurLigne(), false);
     System.out.println("nouvelle ligne");
     System.out.println(ligne);
     return vueligne;

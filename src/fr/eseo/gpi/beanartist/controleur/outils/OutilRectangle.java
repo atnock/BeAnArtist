@@ -20,7 +20,8 @@ public class OutilRectangle extends OutilForme {
     int finY = super.getFin().getY();
     Rectangle rectangle = new Rectangle(Math.min(debutX, finX),Math.min(debutY, finY),
                                         Math.abs(finX - debutX),Math.abs(finY - debutY));
-    VueRectangle vueRectangle = new VueRectangle(rectangle, Color.GREEN, false);
+    VueRectangle vueRectangle = new VueRectangle(rectangle,
+        super.getPanneauDessin().getCouleurLigne(), false);
     vueRectangle.setRempli(super.getPanneauDessin().getModeRemplissage());
     System.out.println(rectangle);
     return vueRectangle;

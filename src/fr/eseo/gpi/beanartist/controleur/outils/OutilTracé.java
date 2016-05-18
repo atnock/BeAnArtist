@@ -49,7 +49,7 @@ public class OutilTracé extends OutilForme {
     int debutY = super.getDébut().getY();
     int finY = super.getFin().getY();
     maTrace = new Tracé(new Point(debutX, debutY), new Point(finX, finY));
-    VueTracé vueTrace = new VueTracé(maTrace, Color.GREEN);
+    VueTracé vueTrace = new VueTracé(maTrace, super.getPanneauDessin().getCouleurLigne());
     vueTrace.setRempli(super.getPanneauDessin().getModeRemplissage());
     System.out.println(maTrace);
     return vueTrace;

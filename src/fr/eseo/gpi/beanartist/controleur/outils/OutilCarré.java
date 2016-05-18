@@ -19,7 +19,7 @@ public class OutilCarré extends OutilForme {
     int debutY = super.getDébut().getY();
     int finY = super.getFin().getY();
     Carré carré = new Carré(Math.min(debutX, finX),Math.min(debutY, finY),Math.abs(finX - debutX));
-    VueCarré vueCarré = new VueCarré(carré, Color.GREEN, false);
+    VueCarré vueCarré = new VueCarré(carré, super.getPanneauDessin().getCouleurLigne(), false);
     vueCarré.setRempli(super.getPanneauDessin().getModeRemplissage());
     System.out.println(carré);
     return vueCarré;

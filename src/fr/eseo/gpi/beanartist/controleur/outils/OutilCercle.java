@@ -19,7 +19,7 @@ public class OutilCercle extends OutilForme {
     int finY = super.getFin().getY();
     Cercle cercle = new Cercle(Math.min(debutX, finX),
                                Math.min(debutY, finY),Math.abs(finX - debutX));
-    VueCercle vueCercle = new VueCercle(cercle, Color.GREEN, false);
+    VueCercle vueCercle = new VueCercle(cercle, super.getPanneauDessin().getCouleurLigne(), false);
     vueCercle.setRempli(super.getPanneauDessin().getModeRemplissage());
     System.out.println(cercle);
     return vueCercle;

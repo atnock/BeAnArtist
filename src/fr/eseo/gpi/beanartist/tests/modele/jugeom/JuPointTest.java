@@ -32,7 +32,7 @@ public class JuPointTest {
   }
   
   @Test
-  public void testDéplacerVers() { //fonction deplacer vers
+  public void testDéplacerVers() {
     Point p4 = new Point(2,4);
     p4.déplacerVers(5,5);
     assertEquals("vérification du changement des coordonnées du points :", 5, p4.getX());
@@ -40,7 +40,7 @@ public class JuPointTest {
   }
   
   @Test
-  public void testDéplacerDe() { //fonction deplacer de
+  public void testDéplacerDe() {
     Point p5 = new Point(2,4);
     p5.déplacerDe(5,5);
     assertEquals("vérification du changement des coordonnées du points :", 7, p5.getX());
@@ -48,7 +48,7 @@ public class JuPointTest {
   }
   
   @Test
-  public void testtoString() { //fonction toString
+  public void testtoString() {
     Point p6 = new Point(2,4);
     assertEquals("vérification du toString :", "(2,4)", p6.toString());
   

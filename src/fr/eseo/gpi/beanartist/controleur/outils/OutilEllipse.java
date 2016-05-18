@@ -19,7 +19,8 @@ public class OutilEllipse extends OutilForme {
     int finY = super.getFin().getY();
     Ellipse ellipse = new Ellipse(Math.min(debutX, finX),Math.min(debutY, finY),
                                   Math.abs(finX - debutX),Math.abs(finY - debutY));
-    VueEllipse vueEllipse = new VueEllipse(ellipse, Color.GREEN, false);
+    VueEllipse vueEllipse = new VueEllipse(ellipse,
+        super.getPanneauDessin().getCouleurLigne(), false);
     vueEllipse.setRempli(super.getPanneauDessin().getModeRemplissage());
     System.out.println(ellipse);
     return vueEllipse;

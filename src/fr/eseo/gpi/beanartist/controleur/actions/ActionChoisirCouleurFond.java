@@ -14,7 +14,7 @@ public class ActionChoisirCouleurFond extends AbstractAction {
 
   FenêtreBeAnArtist fenêtre;
   
-  public static final String NOM_ACTION_COULEUR_FOND = "Couleur Fond";
+  public static final String NOM_ACTION_COULEUR_FOND = "Fond";
   
   public ActionChoisirCouleurFond(FenêtreBeAnArtist theFenêtre) {
     super(NOM_ACTION_COULEUR_FOND);

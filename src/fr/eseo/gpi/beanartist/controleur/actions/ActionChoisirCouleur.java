@@ -13,7 +13,7 @@ public class ActionChoisirCouleur extends AbstractAction {
 
   PanneauDessin panneau;
   
-  public static final String CHOISIR_COULEUR = "Couleur Ligne";
+  public static final String CHOISIR_COULEUR = "Ligne";
   
   public ActionChoisirCouleur(PanneauDessin thePanneau) {
     super(CHOISIR_COULEUR);
@@ -23,9 +23,10 @@ public class ActionChoisirCouleur extends AbstractAction {
   /** Permet la modification de la couleur du tracé courant ou d'un sélectionné.*/
   public void actionPerformed(ActionEvent event) {
     Color couleur = JColorChooser.showDialog(null, "couleur du fond", Color.WHITE);
-    if (this.panneau.getVueFormes().size() > 0) {
-      this.panneau.getVueFormes().get(
-              this.panneau.getVueFormes().size() - 1).setCouleurLigne(couleur);
+    if (panneau.getVueFormeCourante() == null){
+      panneau.setCouleurLigne(couleur);
+    } else {
+      panneau.getVueFormeCourante().setCouleurLigne(couleur);
       this.panneau.repaint();
     }
     

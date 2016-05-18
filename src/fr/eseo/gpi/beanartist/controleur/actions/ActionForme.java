@@ -33,6 +33,10 @@ public class ActionForme extends AbstractAction {
   }
   
   public void actionPerformed(ActionEvent event) {
+    fenêtreSave.getPanneauDessin().setVueFormeCourante(null);
+    fenêtreSave.getPanneauDessin().setSelectionVueForme(null);
+    fenêtreSave.getPanneauDessin().repaint();
+    
     if (event.getActionCommand() == NOM_ACTION_LIGNE) {
       monOutil = new OutilLigne(fenêtreSave.getPanneauDessin());
       monOutil.associer(fenêtreSave.getPanneauDessin());
