@@ -71,6 +71,7 @@ public class LecteurXML extends ProcesseurDOM {
       public void run() {
         FenêtreBeAnArtist fenêtre = new FenêtreBeAnArtist();
         for (VueForme vueForme : dessin) {
+          System.out.println(vueForme.getForme());
           fenêtre.getPanneauDessin().ajouterVueForme(vueForme);
         }
       }
@@ -91,10 +92,14 @@ public class LecteurXML extends ProcesseurDOM {
     List<VueForme> dessin = new ArrayList<>();
     chargeDocument(nomFichier);
     Element racine = getDocument().getDocumentElement();
-    // Pour chaque noeud fils de l'élément racine du document,
-    // si le noeud est un élément DOM, convertir cet élément en une vue sur
-    // la forme que l'élément représente en utilisant la méthode
-    // créeVueForme, puis ajouter cette vue au dessin.
+    NodeList listeNode = racine.getChildNodes();
+    for (int index = 0; index < listeNode.getLength(); index++) {
+      if (listeNode.item(index).getNodeType() == Node.ELEMENT_NODE) {
+        Element element = (Element) listeNode.item(index);
+        dessin.add(créeVueForme(element));
+      }
+    }
+    
     return dessin;
   }
 
@@ -106,29 +111,31 @@ public class LecteurXML extends ProcesseurDOM {
    * @return la vue stockée dans l'élément considéré
    */
   public VueForme créeVueForme(Element element) {
-    VueForme vue = null;
+    VueForme vue = new VueRectangle(new Rectangle(0,0,0,0), false);
     String nom = element.getNodeName();
-    boolean rempli = false;
-    Color couleur = Color.BLUE;
-    if (nom.equals("à modifier !")) {
+    boolean rempli = Boolean.valueOf(element.getAttribute("remplissage"));
+    int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+    Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
+    if (nom.equals("rectangle")) {
       Rectangle forme = créeRectangle(element);
       vue = new VueRectangle(forme, couleur, rempli);
-    } else if (nom.equals("à modifier !")) {
+    } else if (nom.equals("carre")) {
       Carré forme = créeCarré(element);
       vue = new VueCarré(forme, couleur, rempli);
-    } else if (nom.equals("à modifier !")) {
+    } else if (nom.equals("ellipse")) {
       Ellipse forme = créeEllipse(element);
       vue = new VueEllipse(forme, couleur, rempli);
-    } else if (nom.equals("à modifier !")) {
+    } else if (nom.equals("cercle")) {
       Cercle forme = créeCercle(element);
       vue = new VueCercle(forme, couleur, rempli);
-    } else if (nom.equals("à modifier !")) {
+    } else if (nom.equals("ligne")) {
       Ligne forme = créeLigne(element);
       vue = new VueLigne(forme, couleur);
-    } else if (nom.equals("à modifier !")) {
+    } else if (nom.equals("trace")) {
       Tracé forme = créeTracé(element);
       vue = new VueTracé(forme, couleur);
     }
+    System.out.println(nom);
     return vue;
   }
 
@@ -138,7 +145,11 @@ public class LecteurXML extends ProcesseurDOM {
    * @return le rectangle stocké dans l'élément considéré
    */
   public Rectangle créeRectangle(Element element) {
-    return null;
+    int coordX = lisAttribut(element, "x");
+    int coordY = lisAttribut(element, "y");
+    int largeur = lisAttribut(element, "largeur");
+    int hauteur = lisAttribut(element, "hauteur");
+    return new Rectangle(coordX,coordY,largeur,hauteur);
   }
 
   /**
@@ -147,7 +158,10 @@ public class LecteurXML extends ProcesseurDOM {
    * @return le carré stocké dans l'élément considéré
    */
   public Carré créeCarré(Element element) {
-    return null;
+    int coordX = lisAttribut(element, "x");
+    int coordY = lisAttribut(element, "y");
+    int largeur = lisAttribut(element, "largeur");
+    return new Carré(coordX,coordY,largeur);
   }
 
   /**
@@ -156,7 +170,11 @@ public class LecteurXML extends ProcesseurDOM {
    * @return l'ellipse stockée dans l'élément considéré
    */
   public Ellipse créeEllipse(Element element) {
-    return null;
+    int coordX = lisAttribut(element, "x");
+    int coordY = lisAttribut(element, "y");
+    int largeur = lisAttribut(element, "largeur");
+    int hauteur = lisAttribut(element, "hauteur");
+    return new Ellipse(coordX,coordY,largeur,hauteur);
   }
 
   /**
@@ -165,7 +183,10 @@ public class LecteurXML extends ProcesseurDOM {
    * @return le cercle stocké dans l'élément considéré
    */
   public Cercle créeCercle(Element element) {
-    return null;
+    int coordX = lisAttribut(element, "x");
+    int coordY = lisAttribut(element, "y");
+    int largeur = lisAttribut(element, "largeur");
+    return new Cercle(coordX,coordY,largeur);
   }
 
   /**
@@ -174,7 +195,11 @@ public class LecteurXML extends ProcesseurDOM {
    * @return la ligne stockée dans l'élément considéré
    */
   public Ligne créeLigne(Element element) {
-    return null;
+    int coordX = lisAttribut(element, "x");
+    int coordY = lisAttribut(element, "y");
+    int largeur = lisAttribut(element, "largeur");
+    int hauteur = lisAttribut(element, "hauteur");
+    return new Ligne(coordX,coordY,largeur,hauteur);
   }
 
   /**
@@ -183,10 +208,19 @@ public class LecteurXML extends ProcesseurDOM {
    * @return le tracé stocké dans l'élément considéré
    */
   public Tracé créeTracé(Element element) {
-    // création de la liste des points du tracé
-    List<Point> points = new ArrayList<>();
-    // création des lignes formant le tracé
-    return null;
+    int coordX = lisAttribut(element, "x");
+    int coordY = lisAttribut(element, "y");
+    NodeList listeNode = element.getChildNodes();
+    Tracé trace = new Tracé(new Point(coordX, coordY), new Point(coordX, coordY));
+    for (int index = 0; index < listeNode.getLength(); index++) {
+      if (listeNode.item(index).getNodeType() == Node.ELEMENT_NODE) {
+        Element pointSuivant = (Element) listeNode.item(index);
+        coordX = lisAttribut(pointSuivant, "x");
+        coordY = lisAttribut(pointSuivant, "y");
+        trace.ajouterLigneVers(new Point(coordX, coordY));
+      }
+    }
+    return trace;
   }
 
 }

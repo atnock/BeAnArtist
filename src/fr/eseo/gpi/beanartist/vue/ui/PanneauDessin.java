@@ -15,8 +15,8 @@ public class PanneauDessin extends JPanel {
   
   private static final long serialVersionUID = 5036799555546689548L;
   
-  public static final int LARGEUR_PAR_DÉFAUT = 100;
-  public static final int HAUTEUR_PAR_DÉFAUT = 100;
+  public static final int LARGEUR_PAR_DÉFAUT = 900;
+  public static final int HAUTEUR_PAR_DÉFAUT = 900;
   public static final Color COULEUR_FOND_PAR_DÉFAUT = Color.WHITE;
   public static final Color COULEUR_LIGNE_PAR_DÉFAUT = Color.BLACK;
   

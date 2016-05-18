@@ -20,7 +20,7 @@ public class FenêtreBeAnArtist extends JFrame {
   }
   
   public FenêtreBeAnArtist(String titre) {
-    this(titre, PanneauDessin.LARGEUR_PAR_DÉFAUT, PanneauDessin.HAUTEUR_PAR_DÉFAUT);
+    this(titre, PanneauDessin.LARGEUR_PAR_DÉFAUT + 210, PanneauDessin.HAUTEUR_PAR_DÉFAUT);
   }
   
   public FenêtreBeAnArtist(int largeur, int hauteur) {
