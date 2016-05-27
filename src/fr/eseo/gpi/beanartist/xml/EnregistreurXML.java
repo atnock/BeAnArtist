@@ -76,11 +76,9 @@ public class EnregistreurXML extends ProcesseurDOM {
   public void enregistreDessin(String nomFichier, List<VueForme> dessin) throws FileNotFoundException {
     créeDocumentXML("dessin");
     Element racine = getDocument().getDocumentElement();
-    //getDocument().appendChild(racine);  
     for (int i = 0; i < dessin.size(); i++) {
       racine.appendChild(this.créeElémentVueForme(dessin.get(i)));
     }
-    // dans l'élément racine du document.
     enregistreDocument(nomFichier);
   }
 

@@ -66,8 +66,9 @@ public class EnregistreurSVG extends ProcesseurDOM {
   public void enregistreDessin(String nomFichier, List<VueForme> dessin) throws FileNotFoundException {
     créeDocumentSVG();
     Element racine = getDocument().getDocumentElement();
-    // Pour chaque vue du dessin, créer un élément DOM associé et l'ajouter
-    // dans l'élément racine du document.
+    for (int i = 0; i < dessin.size(); i++) {
+      racine.appendChild(this.créeElémentVueForme(dessin.get(i)));
+    }
     enregistreDocument(nomFichier);
   }
 
@@ -80,22 +81,62 @@ public class EnregistreurSVG extends ProcesseurDOM {
    */
   public Element créeElémentVueForme(VueForme vueForme) {
     Element élément;
+    String red;
+    String green;
+    String blue;
     String nom = vueForme.getClass().getSimpleName();
     if (nom.equals("VueRectangle") || nom.equals("VueCarré")) {
       Rectangle forme = (Rectangle) vueForme.getForme();
       élément = créeElémentRectangle(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      if (vueForme.estRempli()) {
+        élément.setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
+      } else {
+        élément.setAttribute("style", "stroke:" + "rgb(" + red + "," + green+"," + blue + ")" + ";stroke-width:1");
+        élément.setAttribute("fill", "none");
+      }
     } else if (nom.equals("VueEllipse")) {
       Ellipse forme = (Ellipse) vueForme.getForme();
       élément = créeElémentEllipse(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      if (vueForme.estRempli()) {
+        élément.setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
+      } else {
+        élément.setAttribute("style", "stroke:" + "rgb(" + red + "," + green+"," + blue + ")" + ";stroke-width:1");
+        élément.setAttribute("fill", "none");
+      }
     } else if (nom.equals("VueCercle")) {
       Cercle forme = (Cercle) vueForme.getForme();
       élément = créeElémentCercle(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      if (vueForme.estRempli()) {
+        élément.setAttribute("fill", "rgb(" + red + "," + green + "," + blue + ")");
+      } else {
+        élément.setAttribute("style", "stroke:" + "rgb(" + red + "," + green+"," + blue + ")" + ";stroke-width:1");
+        élément.setAttribute("fill", "none");
+      }
     } else if (nom.equals("VueLigne")) {
       Ligne forme = (Ligne) vueForme.getForme();
       élément = créeElémentLigne(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("style", "stroke:" + "rgb(" + red + "," + green+"," + blue + ")" + ";stroke-width:1");
+      élément.setAttribute("fill", "none");
     } else if (nom.equals("VueTracé")) {
       Tracé forme = (Tracé) vueForme.getForme();
       élément = créeElémentTracé(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("style", "stroke:" + "rgb(" + red + "," + green+"," + blue + ")" + ";stroke-width:1");
+      élément.setAttribute("fill", "none");
     } else {
       throw new Error("Vue non gérée");
     }
@@ -110,7 +151,12 @@ public class EnregistreurSVG extends ProcesseurDOM {
    * @return élément DOM représentant le rectangle
    */
   public Element créeElémentRectangle(Rectangle forme) {
-    return null;
+    Element élément = getDocument().createElement("rect");
+    élément.setAttribute("x", String.valueOf(forme.getX()));
+    élément.setAttribute("y", String.valueOf(forme.getY()));
+    élément.setAttribute("width", String.valueOf(forme.getLargeur()));
+    élément.setAttribute("height", String.valueOf(forme.getHauteur()));
+    return élément;
   }
 
   /**
@@ -120,7 +166,16 @@ public class EnregistreurSVG extends ProcesseurDOM {
    * @return élément DOM représentant l'ellipse
    */
   public Element créeElémentEllipse(Ellipse forme) {
-    return null;
+    Element élément = getDocument().createElement("ellipse");
+    int cx = forme.getX() + forme.getLargeur() / 2;
+    int cy = forme.getY() + forme.getHauteur() / 2;
+    int rx = forme.getLargeur() / 2;
+    int ry = forme.getHauteur() / 2;
+    élément.setAttribute("cx", String.valueOf(cx));
+    élément.setAttribute("cy", String.valueOf(cy));
+    élément.setAttribute("rx", String.valueOf(rx));
+    élément.setAttribute("ry", String.valueOf(ry));
+    return élément;
   }
 
   /**
@@ -129,7 +184,14 @@ public class EnregistreurSVG extends ProcesseurDOM {
    * @return élément DOM représentant le cercle
    */
   public Element créeElémentCercle(Cercle forme) {
-    return null;
+    Element élément = getDocument().createElement("circle");
+    int cx = forme.getX() + forme.getLargeur() / 2;
+    int cy = forme.getY() + forme.getHauteur() / 2;
+    int rayon = forme.getLargeur() / 2;
+    élément.setAttribute("cx", String.valueOf(cx));
+    élément.setAttribute("cy", String.valueOf(cy));
+    élément.setAttribute("r", String.valueOf(rayon));
+    return élément;
   }
 
   /**
@@ -138,7 +200,16 @@ public class EnregistreurSVG extends ProcesseurDOM {
    * @return élément DOM représentant la ligne
    */
   public Element créeElémentLigne(Ligne forme) {
-    return null;
+    Element élément = getDocument().createElement("line");
+    int x1 = forme.getP1().getX();
+    int y1 = forme.getP1().getY();
+    int x2 = forme.getP2().getX();
+    int y2 = forme.getP2().getY();
+    élément.setAttribute("x1", String.valueOf(x1));
+    élément.setAttribute("y1", String.valueOf(y1));
+    élément.setAttribute("x2", String.valueOf(x2));
+    élément.setAttribute("y2", String.valueOf(y2));
+    return élément;
   }
 
   /**
@@ -147,7 +218,13 @@ public class EnregistreurSVG extends ProcesseurDOM {
    * @return élément DOM représentant le tracé
    */
   public Element créeElémentTracé(Tracé forme) {
-    return null;
+    Element élément = getDocument().createElement("polyline");
+    String points = "";
+    for (int i = 0; i < forme.getLignes().size(); i++) {
+      points = points + String.valueOf(forme.getLignes().get(i).getX()) + "," + String.valueOf(forme.getLignes().get(i).getY()) + " ";
+    }
+    élément.setAttribute("points", points);
+    return élément;
   }
 
 }
