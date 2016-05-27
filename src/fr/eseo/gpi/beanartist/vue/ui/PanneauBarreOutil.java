@@ -6,6 +6,10 @@ import fr.eseo.gpi.beanartist.controleur.actions.ActionEffacer;
 import fr.eseo.gpi.beanartist.controleur.actions.ActionForme;
 import fr.eseo.gpi.beanartist.controleur.actions.ActionModeRemplissage;
 import fr.eseo.gpi.beanartist.controleur.actions.ActionSélectionner;
+import fr.eseo.gpi.beanartist.controleur.actions.ActionCharger;
+import fr.eseo.gpi.beanartist.controleur.actions.ActionSauvegarder;
+import fr.eseo.gpi.beanartist.controleur.actions.ActionExporter;
+
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -44,13 +48,22 @@ public class PanneauBarreOutil extends JPanel {
     /* Panneau Action */
     JPanel pAction = new JPanel();
     pAction.setBorder(BorderFactory.createTitledBorder("Action"));
-    pAction.setPreferredSize(new Dimension(125, 90));
+    pAction.setPreferredSize(new Dimension(125, 200));
     JButton boutonEffacer = new JButton(new ActionEffacer(this.fenêtreBeAnArtist));
     JButton boutonSelect = new JButton(new ActionSélectionner(this.fenêtreBeAnArtist));
+    JButton boutonCharger = new JButton(new ActionCharger(this.fenêtreBeAnArtist));
+    JButton boutonSauvegarder = new JButton(new ActionSauvegarder(this.fenêtreBeAnArtist));
+    JButton boutonExporter = new JButton(new ActionExporter(this.fenêtreBeAnArtist));
+    boutonCharger.setPreferredSize(new Dimension(110, 25));
+    boutonSauvegarder.setPreferredSize(new Dimension(110, 25));
+    boutonExporter.setPreferredSize(new Dimension(110, 25));
     boutonEffacer.setPreferredSize(new Dimension(110, 25));
     boutonSelect.setPreferredSize(new Dimension(110, 25));
     pAction.add(boutonEffacer); 
     pAction.add(boutonSelect);
+    pAction.add(boutonCharger); 
+    pAction.add(boutonSauvegarder);
+    pAction.add(boutonExporter);
     pAction.setLayout(new FlowLayout(FlowLayout.CENTER));
     this.add(pAction);
     

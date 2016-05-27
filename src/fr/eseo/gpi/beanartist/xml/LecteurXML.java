@@ -113,26 +113,39 @@ public class LecteurXML extends ProcesseurDOM {
   public VueForme créeVueForme(Element element) {
     VueForme vue = new VueRectangle(new Rectangle(0,0,0,0), false);
     String nom = element.getNodeName();
-    boolean rempli = Boolean.valueOf(element.getAttribute("remplissage"));
-    int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
-    Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
     if (nom.equals("rectangle")) {
       Rectangle forme = créeRectangle(element);
+      boolean rempli = Boolean.valueOf(element.getAttribute("remplissage"));
+      int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+      Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
       vue = new VueRectangle(forme, couleur, rempli);
     } else if (nom.equals("carre")) {
       Carré forme = créeCarré(element);
+      boolean rempli = Boolean.valueOf(element.getAttribute("remplissage"));
+      int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+      Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
       vue = new VueCarré(forme, couleur, rempli);
     } else if (nom.equals("ellipse")) {
       Ellipse forme = créeEllipse(element);
+      boolean rempli = Boolean.valueOf(element.getAttribute("remplissage"));
+      int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+      Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
       vue = new VueEllipse(forme, couleur, rempli);
     } else if (nom.equals("cercle")) {
       Cercle forme = créeCercle(element);
+      boolean rempli = Boolean.valueOf(element.getAttribute("remplissage"));
+      int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+      Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
       vue = new VueCercle(forme, couleur, rempli);
     } else if (nom.equals("ligne")) {
       Ligne forme = créeLigne(element);
+      int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+      Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
       vue = new VueLigne(forme, couleur);
     } else if (nom.equals("trace")) {
       Tracé forme = créeTracé(element);
+      int[] rgb = lisMotifs(element.getAttribute("couleur"), ",");
+      Color couleur = new Color(rgb[0],rgb[1],rgb[2]);
       vue = new VueTracé(forme, couleur);
     }
     System.out.println(nom);

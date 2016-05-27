@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dessin>
+    <carre couleur="0,0,0" largeur="10" remplissage="true" x="5" y="10"/>
+    <rectangle couleur="0,255,255" hauteur="3" largeur="40"
+        remplissage="false" x="5" y="10"/>
+    <ellipse couleur="0,255,0" hauteur="24" largeur="24"
+        remplissage="true" x="5" y="10"/>
+    <cercle couleur="255,255,0" largeur="6" remplissage="true" x="5" y="10"/>
+    <ligne couleur="255,0,0" hauteur="3" largeur="40"
+        remplissage="false" x="5" y="10"/>
+    <trace couleur="0,0,255" remplissage="false" x="140" y="95">
+        <point x="5" y="10"/>
+        <point x="50" y="100"/>
+        <point x="70" y="120"/>
+    </trace>
+</dessin>

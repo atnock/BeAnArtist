@@ -76,7 +76,10 @@ public class EnregistreurXML extends ProcesseurDOM {
   public void enregistreDessin(String nomFichier, List<VueForme> dessin) throws FileNotFoundException {
     créeDocumentXML("dessin");
     Element racine = getDocument().getDocumentElement();
-    // Pour chaque vue du dessin, créer un élément DOM associé et l'ajouter
+    //getDocument().appendChild(racine);  
+    for (int i = 0; i < dessin.size(); i++) {
+      racine.appendChild(this.créeElémentVueForme(dessin.get(i)));
+    }
     // dans l'élément racine du document.
     enregistreDocument(nomFichier);
   }
@@ -89,30 +92,63 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return l'élément DOM représentant la vue d'une forme
    */
   public Element créeElémentVueForme(VueForme vueForme) {
-    Element élément;
     String nom = vueForme.getClass().getSimpleName();
+    Element élément;
+    String red;
+    String green;
+    String blue;
     if (nom.equals("VueRectangle")) {
       Rectangle forme = (Rectangle) vueForme.getForme();
       élément = créeElémentRectangle(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("couleur", red+","+green+","+blue);
+      élément.setAttribute("remplissage", String.valueOf(vueForme.estRempli()));
+      System.out.println(vueForme.getCouleurLigne().getRGB());
     } else if (nom.equals("VueCarré")) {
       Carré forme = (Carré) vueForme.getForme();
       élément = créeElémentCarré(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("couleur", red+","+green+","+blue);
+      élément.setAttribute("remplissage", String.valueOf(vueForme.estRempli()));
     } else if (nom.equals("VueEllipse")) {
       Ellipse forme = (Ellipse) vueForme.getForme();
       élément = créeElémentEllipse(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("couleur", red+","+green+","+blue);
+      élément.setAttribute("remplissage", String.valueOf(vueForme.estRempli()));
     } else if (nom.equals("VueCercle")) {
       Cercle forme = (Cercle) vueForme.getForme();
       élément = créeElémentCercle(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("couleur", red+","+green+","+blue);
+      élément.setAttribute("remplissage", String.valueOf(vueForme.estRempli()));
     }  else if (nom.equals("VueLigne")) {
       Ligne forme = (Ligne) vueForme.getForme();
       élément = créeElémentLigne(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("couleur", red+","+green+","+blue);
+      élément.setAttribute("remplissage", String.valueOf(false));
     } else if (nom.equals("VueTracé")) {
       Tracé forme = (Tracé) vueForme.getForme();
       élément = créeElémentTracé(forme);
+      red = String.valueOf(vueForme.getCouleurLigne().getRed());
+      green = String.valueOf(vueForme.getCouleurLigne().getGreen());
+      blue = String.valueOf(vueForme.getCouleurLigne().getBlue());
+      élément.setAttribute("couleur", red+","+green+","+blue);
+      élément.setAttribute("remplissage", String.valueOf(vueForme.estRempli()));
     } else {
       throw new Error("Vue non gérée");
     }
-    getDocument().getDocumentElement().appendChild(élément);
     return élément;
   }
 
@@ -122,7 +158,12 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return élément DOM représentant le rectangle
    */
   public Element créeElémentRectangle(Rectangle forme) {
-    return null;
+    Element élément = getDocument().createElement("rectangle");
+    élément.setAttribute("x", String.valueOf(forme.getX()));
+    élément.setAttribute("y", String.valueOf(forme.getY()));
+    élément.setAttribute("largeur", String.valueOf(forme.getLargeur()));
+    élément.setAttribute("hauteur", String.valueOf(forme.getHauteur()));
+    return élément;
   }
 
   /**
@@ -131,7 +172,11 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return élément DOM représentant le carré
    */
   public Element créeElémentCarré(Rectangle forme) {
-    return null;
+    Element élément = getDocument().createElement("carre");
+    élément.setAttribute("x", String.valueOf(forme.getX()));
+    élément.setAttribute("y", String.valueOf(forme.getY()));
+    élément.setAttribute("largeur", String.valueOf(forme.getLargeur()));
+    return élément;
   }
 
   /**
@@ -140,7 +185,12 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return élément DOM représentant l'ellipse
    */
   public Element créeElémentEllipse(Ellipse forme) {
-    return null;
+    Element élément = getDocument().createElement("ellipse");
+    élément.setAttribute("x", String.valueOf(forme.getX()));
+    élément.setAttribute("y", String.valueOf(forme.getY()));
+    élément.setAttribute("largeur", String.valueOf(forme.getLargeur()));
+    élément.setAttribute("hauteur", String.valueOf(forme.getHauteur()));
+    return élément;
   }
 
   /**
@@ -149,7 +199,11 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return élément DOM représentant le cercle
    */
   public Element créeElémentCercle(Cercle forme) {
-    return null;
+    Element élément = getDocument().createElement("cercle");
+    élément.setAttribute("x", String.valueOf(forme.getX()));
+    élément.setAttribute("y", String.valueOf(forme.getY()));
+    élément.setAttribute("largeur", String.valueOf(forme.getLargeur()));
+    return élément;
   }
 
   /**
@@ -158,7 +212,12 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return élément DOM représentant la ligne
    */
   public Element créeElémentLigne(Ligne forme) {
-    return null;
+    Element élément = getDocument().createElement("ligne");
+    élément.setAttribute("x", String.valueOf(forme.getX()));
+    élément.setAttribute("y", String.valueOf(forme.getY()));
+    élément.setAttribute("largeur", String.valueOf(forme.getLargeur()));
+    élément.setAttribute("hauteur", String.valueOf(forme.getHauteur()));
+    return élément;
   }
 
   /**
@@ -167,7 +226,19 @@ public class EnregistreurXML extends ProcesseurDOM {
    * @return élément DOM représentant le tracé
    */
   public Element créeElémentTracé(Tracé forme) {
-    return null;
+    Element élémentPrincipal = getDocument().createElement("trace");
+    élémentPrincipal.setAttribute("x", String.valueOf(forme.getX()));
+    élémentPrincipal.setAttribute("y", String.valueOf(forme.getY()));
+    élémentPrincipal.setAttribute("x", String.valueOf(forme.getHauteur()));
+    élémentPrincipal.setAttribute("y", String.valueOf(forme.getLargeur()));
+    Element élément;
+    for (int i = 1; i < forme.getLignes().size(); i++) {
+      élément = getDocument().createElement("point");
+      élément.setAttribute("x", String.valueOf(forme.getLignes().get(i).getX()));
+      élément.setAttribute("y", String.valueOf(forme.getLignes().get(i).getY()));
+      élémentPrincipal.appendChild(élément);
+    }
+    return élémentPrincipal;
   }
 
 }
