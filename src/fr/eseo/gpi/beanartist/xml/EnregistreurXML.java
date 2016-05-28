@@ -225,10 +225,10 @@ public class EnregistreurXML extends ProcesseurDOM {
    */
   public Element créeElémentTracé(Tracé forme) {
     Element élémentPrincipal = getDocument().createElement("trace");
-    élémentPrincipal.setAttribute("x", String.valueOf(forme.getX()));
-    élémentPrincipal.setAttribute("y", String.valueOf(forme.getY()));
-    élémentPrincipal.setAttribute("x", String.valueOf(forme.getHauteur()));
-    élémentPrincipal.setAttribute("y", String.valueOf(forme.getLargeur()));
+    élémentPrincipal.setAttribute("x", String.valueOf(forme.getLignes().get(0).getX()));
+    élémentPrincipal.setAttribute("y", String.valueOf(forme.getLignes().get(0).getY()));
+    élémentPrincipal.setAttribute("hauteur", String.valueOf(forme.getHauteur()));
+    élémentPrincipal.setAttribute("largeur", String.valueOf(forme.getLargeur()));
     Element élément;
     for (int i = 1; i < forme.getLignes().size(); i++) {
       élément = getDocument().createElement("point");

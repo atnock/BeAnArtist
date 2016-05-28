@@ -48,7 +48,7 @@ public class PanneauBarreOutil extends JPanel {
     /* Panneau Action */
     JPanel pAction = new JPanel();
     pAction.setBorder(BorderFactory.createTitledBorder("Action"));
-    pAction.setPreferredSize(new Dimension(125, 200));
+    pAction.setPreferredSize(new Dimension(125, 175));
     JButton boutonEffacer = new JButton(new ActionEffacer(this.fenêtreBeAnArtist));
     JButton boutonSelect = new JButton(new ActionSélectionner(this.fenêtreBeAnArtist));
     JButton boutonCharger = new JButton(new ActionCharger(this.fenêtreBeAnArtist));

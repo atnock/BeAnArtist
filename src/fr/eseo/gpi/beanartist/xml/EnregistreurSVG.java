@@ -37,7 +37,7 @@ public class EnregistreurSVG extends ProcesseurDOM {
    * 
    */
   public static void main(String[] args) throws FileNotFoundException {
-    teste("S30-Dessin-in.xml", "S30-Dessin-out.svg");
+    teste("S30-Dessin-out.xml", "S30-Dessin-out.svg");
   }
 
   /**

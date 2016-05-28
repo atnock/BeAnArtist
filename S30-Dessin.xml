@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dessin>
-  <carre remplissage="true" couleur="0,0,0" largeur="10" x="5" y="10" />
-  <rectangle remplissage="false" couleur="0,255,255" hauteur="3" largeur="40" x="5" y="10" />
-  <ellipse remplissage="true" couleur="0,255,0" hauteur="24" largeur="24" x="5" y="10" />
-  <cercle remplissage="true" couleur="255,255,0" largeur="6" x="5" y="10" />
-  <ligne remplissage="false" couleur="255,0,0" hauteur="3" largeur="40" x="5" y="10" />
-  <trace remplissage="false" couleur="0,0,255" hauteur="20" largeur="15" x="5" y="10">
-    <point x="50" y="100" />
-    <point x="70" y="120" />
-    <point x="100" y="150" />
-  </trace>
+    <carre couleur="0,0,0" largeur="215" remplissage="false" x="345" y="115"/>
+    <carre couleur="0,0,0" largeur="72" remplissage="false" x="137" y="277"/>
 </dessin>

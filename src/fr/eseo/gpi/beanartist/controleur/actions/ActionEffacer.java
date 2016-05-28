@@ -22,7 +22,6 @@ public class ActionEffacer extends AbstractAction {
   /** Permet l'effacement de toutes les formes présentes dans le PanneauDessin.*/
   public void actionPerformed(ActionEvent event) {
     fenêtreSave.getPanneauDessin().getVueFormes().clear();
-    System.out.println("on clear la liste d'obj !");
     fenêtreSave.repaint();
   }
   
